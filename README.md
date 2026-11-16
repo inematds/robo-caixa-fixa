@@ -1,21 +1,24 @@
 # Robô caixa fixa
 
-Novo projeto de robô de mesa com uma única placa controladora e rosto na tela, derivado do cubo de robos-impressos.
+[![Modelo real](guia/assets/banner.jpg)](https://inematds.github.io/robo-caixa-fixa/guia/)
 
-Estado: primeiro estudo mecânico gerado e conferido por geometria. Duas peças para sustentar o módulo completo; sem firmware, fatiamento ou teste físico. STL de estudo, ainda não liberados para impressão final.
+**[Português](README.md) · [English](README.en.md) · [Español](README.es.md)**
 
-## Escopo pedido
+## O que é
 
-- Caixa/cabeça fixa, sem rodas e sem movimento do pescoço.
-- Uma única placa no robô: ESP32-S3 com LCD de 1,54 polegadas, do anúncio AliExpress 1005011874532154, escolhido pelo Nei. Sem Raspberry Pi nem Arduino auxiliar.
-- Reaproveitar o que for útil do cubo original, redesenhando a fixação e o interior para a placa escolhida.
+O Robô caixa fixa é um suporte impresso em 3D para quem quer montar um robô de mesa com menos mecânica. Ele usa o módulo Waveshare ESP32-S3 com tela de 1,54 polegadas, mantendo a carcaça e a eletrônica originais. Você baixa duas peças, testa primeiro o berço e depois imprime a base com INEMA em relevo, na mesma cor. Precisa de uma impressora 3D, Bambu Studio, filamento, módulo e parafusos. O desenho foi verificado no computador; o encaixe físico e a conversa por IA ainda não foram validados neste projeto.
 
-O foco atual é exclusivamente físico. Há opções com/sem bateria e com/sem toque; o suporte deve preservar acesso a USB, áudio, botões e frente. IA pelo computador ou direto por API fica para o software depois. Nenhuma API externa foi autorizada.
+## Guia e downloads
 
-Veja [DEFINICAO.md](DEFINICAO.md) e [referencias/proveniencia.json](referencias/proveniencia.json).
+**https://inematds.github.io/robo-caixa-fixa/guia/**
 
-Os STL em referencias/ pertencem à cabeça móvel original. Servem para estudar formato e medidas; não imprimir como se fossem a versão fixa.
+O guia tem os STL, pacote ZIP, montagem 3D, verificações e passo a passo de fatiamento para a A1. Comece pelo berço. Os arquivos são de estudo e ainda não foram validados fisicamente; não há G-code nem perfil 3MF validado.
 
-## Primeiro desenho
+## Arquivos do projeto
 
-[Projeto físico](PROJETO-FISICO.md) · [Prancha](estudo/prancha-ESTUDO.png) · [Montagem 3D](estudo/montagem-ESTUDO.glb) · [Verificação](estudo/verificacao.json)
+- [Projeto físico](PROJETO-FISICO.md).
+- [Definição e variantes](DEFINICAO.md).
+- [Gerador CAD](cad/gerar.py).
+- [Verificação](estudo/verificacao.json).
+
+Duas peças e dois parafusos M3 × 16 com porcas, a conferir na bancada. INEMA em relevo de 1,2 mm, engrossado e recuado 4 mm. Programa do rosto e IA ficam para uma etapa futura.
