@@ -12,3 +12,5 @@
 - Vídeo pedido para lives6: em produção, ainda sem URL. Pasta local ~/projetos/output/robo-caixa-fixa-video-20261116/. Roteiro revisado para público de impressora A1, nota 9; avatar pelo estúdio HeyGen, API só leitura/download, conforme autorização permanente.
 
 Publicação não equivale a validação física. Arquivos de estudo: sem fatiamento, impressão e encaixe de bancada conferidos. Bambu Studio oficial só x86-64; host é ARM.
+
+Avatar enviado no estúdio em16/11, id05ac8a010da746e2b1df47436697f5d0; geração pendente na última consulta. Download e preparação em serviços systemd; bilhete de continuação no output. Sem alegar vídeo publicado até recibo real do YouTube.
