@@ -8,8 +8,9 @@ from pathlib import Path
 import json
 import numpy as np
 import trimesh
-from manifold3d import Manifold, OpType
-from PIL import Image, ImageDraw
+from manifold3d import Manifold, OpType, CrossSection, FillRule
+from PIL import Image, ImageDraw, ImageFont
+from skimage.measure import find_contours
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'estudo'
@@ -47,7 +48,25 @@ def cradle():
     return solid
 
 
-base=union([box(-38,38,-18,46,0,5), box(-14,14,29.5,35.5,4.9,54)])
+def marca():
+    """Texto fundido no topo da base: 36 mm de largura e 0,8 mm de relevo."""
+    font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 200)
+    bounds = font.getbbox('INEMA')
+    mask = Image.new('L', (bounds[2]-bounds[0]+20,bounds[3]-bounds[1]+20), 0)
+    ImageDraw.Draw(mask).text((10-bounds[0],10-bounds[1]), 'INEMA', font=font, fill=255)
+    contours = find_contours(np.asarray(mask), 127.5)
+    paths = [np.column_stack([c[:,1],-c[:,0]]) for c in contours]
+    xy = np.vstack(paths)
+    scale = 36/(xy[:,0].max()-xy[:,0].min())
+    middle = (xy.min(axis=0)+xy.max(axis=0))/2
+    # Área frontal do topo; texto legível de frente para o robô.
+    paths = [(p-middle)*scale + [0,-10.5] for p in paths]
+    return CrossSection(paths, FillRule.EvenOdd).extrude(0.95).translate([0,0,4.85])
+
+
+plain_base=union([box(-38,38,-18,46,0,5), box(-14,14,29.5,35.5,4.9,54)])
+base=plain_base + marca()
+assert base.volume() > plain_base.volume()
 for x in [-8,8]: base -= hole(x,43,29,8)
 head=cradle()
 # Dimensões do conjunto COM carcaça: desenho oficial Waveshare, não placa nua.
@@ -60,6 +79,7 @@ print_parts={'base':assembly['base'].copy(),'berco':assembly['berco'].copy()}
 # Berço apoiado pela face traseira: as paredes nascem no plano da mesa.
 print_parts['berco'].apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0]))
 report={'status':'estudo; não liberado para impressão final',
+        'marca':{'texto':'INEMA','largura_mm':36,'relevo_mm':0.8,'posicao':'topo frontal da base','cor':'mesmo filamento da base; sólido único'},
         'modulo_mm':[46,22.5,46], 'modulo_dimensao_fonte':'https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.54#dimensions',
         'folga_lateral_por_lado_mm':0.4,'folga_traseira_mm':0.8,
         'fixacao':'2 parafusos M3 x 16 e 2 porcas M3; confirmar na bancada',

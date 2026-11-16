@@ -1,5 +1,12 @@
 {
   "status": "estudo; não liberado para impressão final",
+  "marca": {
+    "texto": "INEMA",
+    "largura_mm": 36,
+    "relevo_mm": 0.8,
+    "posicao": "topo frontal da base",
+    "cor": "mesmo filamento da base; sólido único"
+  },
   "modulo_mm": [
     46,
     22.5,
@@ -19,7 +26,7 @@
         64.0,
         54.0
       ],
-      "volume_cm3": 32.44,
+      "volume_cm3": 32.56,
       "geometria_basica_ok": true
     },
     "berco": {

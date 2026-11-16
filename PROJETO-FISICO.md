@@ -45,3 +45,7 @@ Esses testes não verificam acústica, esforço do toque, resistência, raio de 
 3. Ajustar folgas e eventual retenção contra queda; testar estabilidade ao tocar.
 4. Fatiar na A1 com PETG como material proposto; não prometer ausência de suporte sem conferir a prévia.
 5. Só então liberar STL finais, material e parâmetros de impressão.
+
+## Marca na base — pedido de 16/11/2026
+
+INEMA em relevo de 0,8 mm sobre o topo frontal da base, com 36 mm de largura. Letras fundidas ao mesmo sólido: um filamento, mesma cor da base, sem troca de cor nem colagem. Malha exportada reaberta e conferida como fechada e de um corpo só.
