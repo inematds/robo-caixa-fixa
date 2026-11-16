@@ -22,3 +22,6 @@ The guide includes the STL files, a ZIP package, a 3D assembly, checks, and slic
 - [Verification](estudo/verificacao.json).
 
 Two parts and two M3 × 16 screws with nuts, to be checked at the workbench. INEMA is embossed 1.2 mm, thickened and recessed by 4 mm. The face program and AI are planned for a future stage.
+## Project video
+
+https://www.youtube.com/watch?v=BEY94Ag9BWk

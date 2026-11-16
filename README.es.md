@@ -22,3 +22,7 @@ La guía incluye los STL, el paquete ZIP, el montaje 3D, las verificaciones y lo
 - [Verificación](estudo/verificacao.json).
 
 Dos piezas y dos tornillos M3 × 16 con tuercas, por verificar en el banco de trabajo. INEMA en relieve de 1,2 mm, con letras engrosadas y retraídas 4 mm. El programa para el rostro y la IA quedan para una etapa futura.
+
+## Vídeo del proyecto
+
+https://www.youtube.com/watch?v=BEY94Ag9BWk

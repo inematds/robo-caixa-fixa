@@ -22,3 +22,7 @@ O guia tem os STL, pacote ZIP, montagem 3D, verificações e passo a passo de fa
 - [Verificação](estudo/verificacao.json).
 
 Duas peças e dois parafusos M3 × 16 com porcas, a conferir na bancada. INEMA em relevo de 1,2 mm, engrossado e recuado 4 mm. Programa do rosto e IA ficam para uma etapa futura.
+
+## Vídeo do projeto
+
+https://www.youtube.com/watch?v=BEY94Ag9BWk
