@@ -49,7 +49,7 @@ def cradle():
 
 
 def marca():
-    """Texto fundido no topo da base: 36 mm de largura e 0,8 mm de relevo."""
+    """Letras engrossadas em 0,4 mm, relevo de 1,2 mm, afastadas da borda."""
     font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 200)
     bounds = font.getbbox('INEMA')
     mask = Image.new('L', (bounds[2]-bounds[0]+20,bounds[3]-bounds[1]+20), 0)
@@ -60,8 +60,9 @@ def marca():
     scale = 36/(xy[:,0].max()-xy[:,0].min())
     middle = (xy.min(axis=0)+xy.max(axis=0))/2
     # Área frontal do topo; texto legível de frente para o robô.
-    paths = [(p-middle)*scale + [0,-10.5] for p in paths]
-    return CrossSection(paths, FillRule.EvenOdd).extrude(0.95).translate([0,0,4.85])
+    paths = [(p-middle)*scale + [0,-6.5] for p in paths]
+    outline = CrossSection(paths, FillRule.EvenOdd).simplify(0.03).offset(0.2).simplify(0.01)
+    return outline.extrude(1.35).translate([0,0,4.85])
 
 
 plain_base=union([box(-38,38,-18,46,0,5), box(-14,14,29.5,35.5,4.9,54)])
@@ -79,7 +80,7 @@ print_parts={'base':assembly['base'].copy(),'berco':assembly['berco'].copy()}
 # Berço apoiado pela face traseira: as paredes nascem no plano da mesa.
 print_parts['berco'].apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0]))
 report={'status':'estudo; não liberado para impressão final',
-        'marca':{'texto':'INEMA','largura_mm':36,'relevo_mm':0.8,'posicao':'topo frontal da base','cor':'mesmo filamento da base; sólido único'},
+        'marca':{'texto':'INEMA','largura_nominal_mm':36,'engrossamento_contorno_por_lado_mm':0.2,'relevo_mm':1.2,'recuo_adicional_mm':4,'centro_y_mm':-6.5,'posicao':'topo frontal da base','cor':'mesmo filamento da base; sólido único'},
         'modulo_mm':[46,22.5,46], 'modulo_dimensao_fonte':'https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.54#dimensions',
         'folga_lateral_por_lado_mm':0.4,'folga_traseira_mm':0.8,
         'fixacao':'2 parafusos M3 x 16 e 2 porcas M3; confirmar na bancada',

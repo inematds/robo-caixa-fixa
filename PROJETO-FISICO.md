@@ -48,4 +48,4 @@ Esses testes não verificam acústica, esforço do toque, resistência, raio de 
 
 ## Marca na base — pedido de 16/11/2026
 
-INEMA em relevo de 0,8 mm sobre o topo frontal da base, com 36 mm de largura. Letras fundidas ao mesmo sólido: um filamento, mesma cor da base, sem troca de cor nem colagem. Malha exportada reaberta e conferida como fechada e de um corpo só.
+INEMA em relevo de 1,2 mm sobre o topo frontal da base, com largura nominal de 36 mm e contorno engrossado 0,2 mm por lado (traços 0,4 mm mais grossos). O texto foi deslocado 4 mm para dentro da base, afastando da borda frontal. Letras fundidas ao mesmo sólido: um filamento, mesma cor da base, sem troca de cor nem colagem. Malha exportada reaberta e conferida como fechada e de um corpo só.
